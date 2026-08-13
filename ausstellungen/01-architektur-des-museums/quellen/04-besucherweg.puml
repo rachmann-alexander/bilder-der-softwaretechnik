@@ -1,0 +1,50 @@
+@startuml 04-besucherweg
+!include stil.iuml
+
+title Besucherweg: Wie die Übersicht entsteht
+
+actor "Besucherin" as B
+participant "Browser" as Br
+participant "ausstellungen.html" as Seite
+participant "register.js" as Reg
+participant "museum.js" as Js
+participant "Saal 01" as Saal
+
+B -> Br : Adresse aufrufen
+activate Br
+
+Br -> Seite : GET ausstellungen.html
+activate Seite
+Seite --> Br : Gerüst mit leerer Galerie
+deactivate Seite
+
+Br -> Reg : GET ausstellungen/register.js
+activate Reg
+Reg --> Br : window.MUSEUM_REGISTER
+deactivate Reg
+
+Br -> Js : GET assets/js/museum.js
+activate Js
+Js -> Js : Register nach Datum sortieren
+
+loop je Ausstellung
+  Js -> Br : Tafel in die Galerie hängen
+end
+
+Js --> Br : fertig
+deactivate Js
+
+Br --> B : Galerie zeigen
+deactivate Br
+
+B -> Saal : Tafel anklicken
+activate Saal
+Saal --> B : Exponate und Schilder
+deactivate Saal
+
+note over Reg, Js
+  Das Register ist die einzige Stelle,
+  die eine neue Ausstellung kennt.
+end note
+
+@enduml

@@ -1,0 +1,55 @@
+/* =========================================================================
+   Feinschliff nur fuer den Saal "Architektur des Museums".
+   Das Grundgeruest liefert ../../assets/css/museum.css.
+   ========================================================================= */
+
+/* Saalplan: springt zu den Exponaten */
+.saalplan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  padding: 0;
+  margin: 2rem 0 0;
+  list-style: none;
+}
+
+.saalplan a {
+  display: block;
+  font-family: var(--grotesk);
+  font-size: .74rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--tinte-leise);
+  border: 1px solid var(--rahmen);
+  background: var(--papier);
+  padding: .55rem 1rem;
+}
+
+.saalplan a:hover { color: var(--tinte); border-color: var(--bronze); }
+
+/* Exponate liegen ruhiger auseinander als im Grundstil */
+.exponat { scroll-margin-top: 5.5rem; }
+
+/* Hochformat bremsen, damit kein Exponat die Seite sprengt */
+.passepartout img { max-height: 78vh; width: auto; }
+
+.passepartout--breit img { max-height: none; width: 100%; }
+
+/* Zeile unter dem Schild: Quelle und Vollbild */
+.exponat-fuss {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem 1.5rem;
+  margin-top: 1rem;
+  font-family: var(--grotesk);
+  font-size: .74rem;
+  letter-spacing: .06em;
+}
+
+.exponat-fuss a { text-decoration: none; border-bottom: 1px solid var(--rahmen); }
+.exponat-fuss a:hover { border-bottom-color: var(--bronze); }
+
+/* Kolophon am Ende des Saals */
+.kolophon { background: var(--wand-tief); border-top: 1px solid var(--rahmen); }
+.kolophon pre { background: var(--papier); }

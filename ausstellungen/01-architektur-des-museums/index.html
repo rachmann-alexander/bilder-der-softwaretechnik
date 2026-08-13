@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architektur des Museums &ndash; Bilder der Softwaretechnik</title>
+<meta name="description" content="Vier UML-Diagramme zeigen Bausteine, Verzeichnisse, Auslieferung und den Weg eines Besuchers durch das Museum.">
+<link rel="stylesheet" href="../../assets/css/museum.css">
+<link rel="stylesheet" href="ausstellung.css">
+</head>
+<body>
+
+<header class="museumskopf">
+  <div class="huelle">
+    <a class="wortmarke" href="../../index.html">Bilder der Softwaretechnik<span>Museum für Softwaretechnik</span></a>
+    <nav class="wegweiser" aria-label="Hauptnavigation">
+      <a href="../../index.html">Eingangshalle</a>
+      <a href="../../ausstellungen.html" aria-current="page">Ausstellungen</a>
+      <a href="../../impressum.html">Impressum</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="portal">
+    <div class="huelle">
+      <p class="oberzeile">Saal I &middot; 4 Exponate</p>
+      <h1>Architektur des Museums</h1>
+      <hr class="zierlinie">
+      <p class="vorspann">
+        Das Museum stellt sich selbst aus. Vier Diagramme zeigen, woraus es besteht,
+        wie seine Ordner liegen, wie es zum Besucher gelangt und was beim Öffnen
+        einer Seite geschieht.
+      </p>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+      <h2>Zur Ausstellung</h2>
+      <p class="untertitel">Einführung des Kurators</p>
+
+      <p>
+        Ein Museum, das Bilder der Softwaretechnik sammelt, muss sich die Frage
+        gefallen lassen: Wie sieht dein eigenes Bild aus? Dieser Saal antwortet.
+      </p>
+      <p>
+        Die vier Exponate folgen vier Fragen. Woraus besteht das Museum?
+        Wo liegen die Teile? Wie kommen sie zum Besucher? Was passiert beim Klick?
+        Jede Frage bekommt genau ein Diagramm. Keines erklärt alles; zusammen
+        erklären sie genug.
+      </p>
+      <p>
+        Alle Bilder entstanden aus PlantUML-Quellen. Die Quelltexte liegen im
+        Ordner <code>quellen/</code> neben den Bildern. Jedes Exponat verlinkt
+        seine Quelle. So bleibt jedes Bild prüfbar und änderbar.
+      </p>
+
+      <nav aria-label="Saalplan">
+        <ul class="saalplan">
+          <li><a href="#exponat-1">I &middot; Bausteinsicht</a></li>
+          <li><a href="#exponat-2">II &middot; Verzeichnisbaum</a></li>
+          <li><a href="#exponat-3">III &middot; Verteilungssicht</a></li>
+          <li><a href="#exponat-4">IV &middot; Besucherweg</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+
+      <!-- ============================================================ I -->
+      <article class="exponat" id="exponat-1">
+        <div class="passepartout passepartout--breit">
+          <img src="bilder/01-bausteinsicht.jpg"
+               alt="Komponentendiagramm: Eingangshalle, Übersichtsseite, gemeinsame Mittel und ein Ausstellungsordner mit ihren Abhängigkeiten.">
+          <div class="schildchen">
+            <p class="nummer">Exponat I</p>
+            <h3>Bausteinsicht</h3>
+            <p>
+              Vier Gruppen bilden das Museum: die Eingangshalle, die Übersichtsseite,
+              die gemeinsamen Mittel und die Ausstellungen. Nur die gemeinsamen Mittel
+              kennt jede Seite. Ein Ausstellungsordner kennt niemanden außer sich selbst.
+            </p>
+            <p>
+              Die einzige Verbindung zwischen Haus und Saal läuft über das Register.
+              <code>museum.js</code> liest es und baut daraus die Galerie. Wer eine
+              Ausstellung entfernt, entfernt einen Ordner und eine Zeile.
+            </p>
+            <p class="technik">UML-Komponentendiagramm &middot; PlantUML &middot; JPG, 1612 × 729</p>
+          </div>
+        </div>
+        <p class="exponat-fuss">
+          <a href="quellen/01-bausteinsicht.puml">Quelltext ansehen</a>
+          <a href="bilder/01-bausteinsicht.jpg">Bild in voller Größe</a>
+        </p>
+      </article>
+
+      <!-- =========================================================== II -->
+      <article class="exponat" id="exponat-2">
+        <div class="passepartout passepartout--breit">
+          <img src="bilder/02-verzeichnisbaum.jpg"
+               alt="Baumdiagramm des Projektordners mit index.html, ausstellungen.html, impressum.html, assets, ausstellungen und werkzeuge.">
+          <div class="schildchen">
+            <p class="nummer">Exponat II</p>
+            <h3>Verzeichnisbaum</h3>
+            <p>
+              Der Baum zeigt die Regel des Hauses: Eine Ausstellung ist ein Ordner.
+              Sie enthält ihre Seite, ihr Stylesheet, ihre Bilder und die Quellen
+              dieser Bilder. Nichts davon liegt woanders.
+            </p>
+            <p>
+              Diese Regel hält den Aufwand klein. Eine Ausstellung wandert per
+              Kopieren, verschwindet per Löschen und stört keine andere. Der Preis
+              ist Redundanz; der Gewinn ist Unabhängigkeit.
+            </p>
+            <p class="technik">Baumdarstellung als UML-Komponentendiagramm &middot; PlantUML &middot; JPG, 1624 × 1314</p>
+          </div>
+        </div>
+        <p class="exponat-fuss">
+          <a href="quellen/02-verzeichnisbaum.puml">Quelltext ansehen</a>
+          <a href="bilder/02-verzeichnisbaum.jpg">Bild in voller Größe</a>
+        </p>
+      </article>
+
+      <!-- ========================================================== III -->
+      <article class="exponat" id="exponat-3">
+        <div class="passepartout">
+          <img src="bilder/03-verteilungssicht.jpg"
+               alt="Verteilungsdiagramm: Arbeitsplatz mit PlantUML und Git, GitHub mit Repository und Pages, Browser der Besucherin.">
+          <div class="schildchen">
+            <p class="nummer">Exponat III</p>
+            <h3>Verteilungssicht</h3>
+            <p>
+              Drei Knoten genügen. Am Arbeitsplatz rendert PlantUML die Quellen zu
+              JPG; Git schiebt Quellen und Bilder ins Repository. GitHub Pages legt
+              die Dateien aus. Der Browser setzt sie zusammen.
+            </p>
+            <p>
+              Es gibt keinen Anwendungsserver und keine Datenbank. Das Museum
+              besteht aus Dateien. Diese Entscheidung kostet dynamische Funktionen
+              und spart Betrieb.
+            </p>
+            <p class="technik">UML-Verteilungsdiagramm &middot; PlantUML &middot; JPG, 819 × 1608</p>
+          </div>
+        </div>
+        <p class="exponat-fuss">
+          <a href="quellen/03-verteilungssicht.puml">Quelltext ansehen</a>
+          <a href="bilder/03-verteilungssicht.jpg">Bild in voller Größe</a>
+        </p>
+      </article>
+
+      <!-- =========================================================== IV -->
+      <article class="exponat" id="exponat-4">
+        <div class="passepartout passepartout--breit">
+          <img src="bilder/04-besucherweg.jpg"
+               alt="Sequenzdiagramm: Besucherin ruft die Übersicht auf, Browser lädt register.js und museum.js, museum.js hängt Tafeln in die Galerie.">
+          <div class="schildchen">
+            <p class="nummer">Exponat IV</p>
+            <h3>Besucherweg</h3>
+            <p>
+              Der Browser lädt zuerst ein leeres Gerüst, dann das Register, dann
+              <code>museum.js</code>. Das Skript sortiert die Ausstellungen nach
+              Eröffnungsdatum und hängt für jede eine Tafel in die Galerie.
+            </p>
+            <p>
+              Das Register kommt als JavaScript-Datei, nicht als JSON. So läuft die
+              Seite auch beim Doppelklick aus dem Dateisystem, ohne Webserver und
+              ohne <code>fetch</code>.
+            </p>
+            <p class="technik">UML-Sequenzdiagramm &middot; PlantUML &middot; JPG, 1213 × 959</p>
+          </div>
+        </div>
+        <p class="exponat-fuss">
+          <a href="quellen/04-besucherweg.puml">Quelltext ansehen</a>
+          <a href="bilder/04-besucherweg.jpg">Bild in voller Größe</a>
+        </p>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="saal kolophon">
+    <div class="huelle">
+      <h2>Kolophon</h2>
+      <p class="untertitel">Wie die Exponate entstanden</p>
+
+      <p>Alle vier Bilder entstehen aus ihren Quellen mit einem Befehl:</p>
+
+<pre>./werkzeuge/diagramme-rendern.sh 01-architektur-des-museums</pre>
+
+      <p>
+        Das Skript ruft PlantUML auf, schreibt PNG in ein temporäres Verzeichnis
+        und wandelt es mit ImageMagick nach JPG. Die JPG-Dateien landen in
+        <code>bilder/</code> und wandern mit ins Repository. Wer das Museum nur
+        anschaut, braucht weder Java noch Graphviz.
+      </p>
+
+      <dl class="datenblatt">
+        <dt>Notation</dt><dd>UML 2, Komponenten-, Verteilungs- und Sequenzdiagramm</dd>
+        <dt>Werkzeug</dt><dd>PlantUML mit Graphviz, gemeinsamer Stil in <code>quellen/stil.iuml</code></dd>
+        <dt>Format</dt><dd>JPG, Qualität 92, weißer Hintergrund</dd>
+        <dt>Eröffnet</dt><dd>13. August 2026</dd>
+      </dl>
+
+      <p style="margin-top:2.5rem"><a class="knopf" href="../../ausstellungen.html">Zurück zur Übersicht</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="museumsfuss">
+  <div class="huelle">
+    <span>Bilder der Softwaretechnik &copy; <span data-jahr>2026</span></span>
+    <a href="../../impressum.html">Impressum</a>
+    <a href="../../ausstellungen.html">Ausstellungen</a>
+    <span class="rechts">Saal I &middot; Architektur des Museums</span>
+  </div>
+</footer>
+
+<script src="../../assets/js/museum.js"></script>
+</body>
+</html>

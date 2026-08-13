@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ausstellungen &ndash; Bilder der Softwaretechnik</title>
+<meta name="description" content="Übersicht aller Ausstellungen im Museum für Softwaretechnik.">
+<link rel="stylesheet" href="assets/css/museum.css">
+</head>
+<body>
+
+<header class="museumskopf">
+  <div class="huelle">
+    <a class="wortmarke" href="index.html">Bilder der Softwaretechnik<span>Museum für Softwaretechnik</span></a>
+    <nav class="wegweiser" aria-label="Hauptnavigation">
+      <a href="index.html">Eingangshalle</a>
+      <a href="ausstellungen.html" aria-current="page">Ausstellungen</a>
+      <a href="impressum.html">Impressum</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="portal">
+    <div class="huelle">
+      <p class="oberzeile" data-anzahl>Ausstellungen</p>
+      <h1>Ausstellungen</h1>
+      <hr class="zierlinie">
+      <p class="vorspann">
+        Jede Ausstellung zeigt ein Thema der Softwaretechnik in Bildern.
+        Wählen Sie einen Saal.
+      </p>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+      <ul class="galerie" data-galerie data-basis="ausstellungen/"></ul>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+      <h2>Eine Ausstellung beitragen</h2>
+      <p class="untertitel">In drei Schritten</p>
+      <p>Das Museum nimmt jederzeit neue Räume auf. Drei Schritte genügen:</p>
+      <ol>
+        <li>Lege unter <code>ausstellungen/</code> einen Ordner an, etwa <code>02-entwurfsmuster</code>.</li>
+        <li>Fülle ihn mit <code>index.html</code>, einem Stylesheet und deinen Bildern.</li>
+        <li>Trage die Ausstellung in <code>ausstellungen/register.js</code> ein.</li>
+      </ol>
+      <p>
+        Die Übersicht liest das Register beim Laden und erzeugt die Karten selbst.
+        Kopiere am schnellsten den Ordner der ersten Ausstellung als Vorlage.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="museumsfuss">
+  <div class="huelle">
+    <span>Bilder der Softwaretechnik &copy; <span data-jahr>2026</span></span>
+    <a href="impressum.html">Impressum</a>
+    <a href="index.html">Eingangshalle</a>
+    <span class="rechts">Gebaut mit HTML, CSS und JavaScript.</span>
+  </div>
+</footer>
+
+<script src="ausstellungen/register.js"></script>
+<script src="assets/js/museum.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+@startuml 03-verteilungssicht
+!include stil.iuml
+
+title Verteilungssicht: Vom Schreibtisch an die Wand
+
+node "Arbeitsplatz des Kurators" as Autor {
+  artifact "*.puml\n<size:11>Diagrammquelle</size>" as Puml
+  component "PlantUML + Graphviz\n<size:11>Java</size>" as Plant
+  artifact "*.jpg\n<size:11>das Exponat</size>" as Jpg
+  component "Git" as Git
+}
+
+node "GitHub" as GH {
+  database "Repository\n<size:11>Zweig main</size>" as Repo
+  node "GitHub Pages\n<size:11>statischer Webserver</size>" as Pages
+}
+
+node "Browser der Besucherin" as Browser {
+  component "HTML + CSS\n<size:11>zeichnet die Seite</size>" as Runtime
+  component "museum.js\n<size:11>baut die Galerie</size>" as Client
+}
+
+Puml --> Plant : rendern
+Plant --> Jpg : erzeugt
+Jpg --> Git : einchecken
+Puml --> Git : einchecken
+Git --> Repo : git push
+Repo --> Pages : veröffentlicht automatisch
+Pages --> Runtime : HTTPS, statische Dateien
+Runtime --> Client : startet
+
+note right of Pages
+  Kein Server, keine Datenbank.
+  Pages legt nur Dateien aus.
+end note
+
+@enduml

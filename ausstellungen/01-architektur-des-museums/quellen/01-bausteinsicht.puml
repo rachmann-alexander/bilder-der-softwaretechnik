@@ -1,0 +1,53 @@
+@startuml 01-bausteinsicht
+!include stil.iuml
+
+title Bausteinsicht: Woraus das Museum besteht
+
+actor "Besucherin" as B
+
+package "Eingangshalle" {
+  component "index.html\n<size:11>Vorstellung, Vitrine</size>" as Index
+  component "impressum.html\n<size:11>Rechtliches</size>" as Impressum
+}
+
+package "Übersichtsseite" {
+  component "ausstellungen.html\n<size:11>alle Säle</size>" as Ueb
+  file "ausstellungen/register.js\n<size:11>Liste der Ausstellungen</size>" as Register
+}
+
+package "Gemeinsame Mittel" {
+  component "assets/css/museum.css\n<size:11>Museumslook</size>" as Css
+  component "assets/js/museum.js\n<size:11>baut die Galerie</size>" as Js
+}
+
+package "Ausstellung: ein Ordner je Saal" {
+  component "index.html\n<size:11>Saalseite</size>" as AIndex
+  component "ausstellung.css\n<size:11>eigener Feinschliff</size>" as ACss
+  folder "bilder/\n<size:11>JPG, das Exponat</size>" as Bilder
+  folder "quellen/\n<size:11>PUML, der Nachweis</size>" as Quellen
+}
+
+B --> Index
+B --> Ueb
+B --> AIndex
+
+Index ..> Css
+Index ..> Js
+Ueb ..> Css
+Ueb ..> Js
+Impressum ..> Css
+
+Js --> Register : liest
+Ueb --> AIndex : verlinkt
+
+AIndex ..> Css
+AIndex ..> ACss
+AIndex --> Bilder : zeigt
+Quellen ..> Bilder : gerendert zu
+
+note bottom of Quellen
+  Die Quellen bleiben im Ordner.
+  Jedes Bild bleibt nachvollziehbar.
+end note
+
+@enduml

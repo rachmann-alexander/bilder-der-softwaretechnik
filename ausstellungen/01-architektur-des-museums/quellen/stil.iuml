@@ -1,0 +1,64 @@
+' =========================================================================
+' Gemeinsamer Stil aller Diagramme dieser Ausstellung.
+' Farben folgen dem Stylesheet des Museums (assets/css/museum.css).
+' =========================================================================
+
+skinparam backgroundColor        #FFFDF8
+skinparam shadowing              false
+skinparam defaultFontName        SansSerif
+skinparam defaultFontSize        13
+skinparam defaultFontColor       #2B2521
+skinparam roundCorner            3
+skinparam dpi                    140
+
+skinparam TitleFontSize          20
+skinparam TitleFontColor         #2B2521
+skinparam TitleBorderThickness   0
+
+skinparam ArrowColor             #8C6239
+skinparam ArrowFontColor         #6B5F54
+skinparam ArrowFontSize          12
+
+skinparam ComponentBackgroundColor  #F4EFE6
+skinparam ComponentBorderColor      #8C6239
+skinparam ComponentFontColor        #2B2521
+
+skinparam PackageBackgroundColor    #FFFDF8
+skinparam PackageBorderColor        #C9BCA5
+skinparam PackageFontColor          #6B5F54
+skinparam PackageFontStyle          bold
+
+skinparam RectangleBackgroundColor  #F4EFE6
+skinparam RectangleBorderColor      #8C6239
+
+skinparam FolderBackgroundColor     #EBE3D5
+skinparam FolderBorderColor         #B08553
+
+skinparam FileBackgroundColor       #EBE3D5
+skinparam FileBorderColor           #B08553
+
+skinparam ArtifactBackgroundColor   #EBE3D5
+skinparam ArtifactBorderColor       #B08553
+
+skinparam NodeBackgroundColor       #F4EFE6
+skinparam NodeBorderColor           #8C6239
+
+skinparam DatabaseBackgroundColor   #EBE3D5
+skinparam DatabaseBorderColor       #8C6239
+
+skinparam ActorBackgroundColor      #FFFDF8
+skinparam ActorBorderColor          #2B2521
+
+skinparam NoteBackgroundColor       #F7F0DF
+skinparam NoteBorderColor           #B08553
+skinparam NoteFontColor             #2B2521
+skinparam NoteFontSize              12
+
+skinparam SequenceParticipantBackgroundColor  #F4EFE6
+skinparam SequenceParticipantBorderColor      #8C6239
+skinparam SequenceLifeLineBorderColor         #C9BCA5
+skinparam SequenceBoxBackgroundColor          #FFFDF8
+skinparam SequenceBoxBorderColor              #C9BCA5
+skinparam SequenceGroupBackgroundColor        #EBE3D5
+skinparam SequenceGroupBorderColor            #B08553
+skinparam SequenceGroupHeaderFontColor        #2B2521

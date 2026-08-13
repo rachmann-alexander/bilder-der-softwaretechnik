@@ -1,0 +1,69 @@
+@startuml 02-verzeichnisbaum
+!include stil.iuml
+
+left to right direction
+
+title Verzeichnisbaum: Eine Ausstellung ist ein Ordner
+
+folder "bilder-der-softwaretechnik/" as Wurzel
+
+file "index.html\n<size:11>Eingangshalle</size>"                as F1
+file "ausstellungen.html\n<size:11>Übersicht</size>"            as F2
+file "impressum.html\n<size:11>Rechtliches</size>"              as F3
+file ".nojekyll\n<size:11>Pages liefert unverändert aus</size>" as F4
+file "README.md"                                                as F5
+
+folder "assets/"       as Assets
+file "css/museum.css\n<size:11>Museumslook, alle Seiten</size>" as A1
+file "js/museum.js\n<size:11>baut die Galerie</size>"           as A2
+
+folder "ausstellungen/" as Auss
+file "register.js\n<size:11>kennt jede Ausstellung</size>" as R1
+
+folder "01-architektur-des-museums/" as E1
+file   "index.html\n<size:11>die Saalseite</size>"           as E1a
+file   "ausstellung.css\n<size:11>nur für diesen Saal</size>" as E1b
+folder "bilder/\n<size:11>4 JPG, die Exponate</size>"        as E1c
+folder "quellen/\n<size:11>4 PUML und stil.iuml</size>"      as E1d
+
+folder "02-…/\n<size:11>der nächste Saal</size>" as E2
+
+folder "werkzeuge/" as Tools
+file "diagramme-rendern.sh\n<size:11>PUML zu JPG</size>" as T1
+
+Wurzel -- F1
+Wurzel -- F2
+Wurzel -- F3
+Wurzel -- F4
+Wurzel -- F5
+Wurzel -- Assets
+Wurzel -- Auss
+Wurzel -- Tools
+
+Assets -- A1
+Assets -- A2
+
+Auss -- R1
+Auss -- E1
+Auss -- E2
+
+E1 -- E1a
+E1 -- E1b
+E1 -- E1c
+E1 -- E1d
+
+Tools -- T1
+
+note right of R1
+  Trägt jede Ausstellung ein.
+  Die einzige Datei, die beim
+  Hinzufügen eines Saals geändert wird.
+end note
+
+note right of E1
+  Regel des Hauses:
+  Ein Saal bringt alles mit, was er braucht.
+  Nur das Register verbindet ihn mit dem Haus.
+end note
+
+@enduml

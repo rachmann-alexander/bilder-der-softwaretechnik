@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilder der Softwaretechnik &ndash; Museum für Softwaretechnik</title>
+<meta name="description" content="Ein Museum für Softwaretechnik. Diagramme, Modelle und Entwürfe als Ausstellungsstücke.">
+<link rel="stylesheet" href="assets/css/museum.css">
+</head>
+<body>
+
+<header class="museumskopf">
+  <div class="huelle">
+    <a class="wortmarke" href="index.html">Bilder der Softwaretechnik<span>Museum für Softwaretechnik</span></a>
+    <nav class="wegweiser" aria-label="Hauptnavigation">
+      <a href="index.html" aria-current="page">Eingangshalle</a>
+      <a href="ausstellungen.html">Ausstellungen</a>
+      <a href="impressum.html">Impressum</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="portal">
+    <div class="huelle">
+      <p class="oberzeile">Eingangshalle</p>
+      <h1>Bilder der<br>Softwaretechnik</h1>
+      <hr class="zierlinie">
+      <p class="vorspann">
+        Software ist unsichtbar. Erst das Bild macht sie besprechbar.
+        Dieses Museum sammelt solche Bilder: Diagramme, Modelle und Entwürfe,
+        die zeigen, wie Software gebaut wird.
+      </p>
+      <p style="margin-top:2.25rem"><a class="knopf" href="ausstellungen.html">Zu den Ausstellungen</a></p>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+      <h2>Über das Projekt</h2>
+      <p class="untertitel">Warum ein Museum?</p>
+
+      <p>
+        Ingenieure zeichnen, seit sie bauen. Softwaretechnik zeichnet ebenfalls:
+        Klassendiagramme, Sequenzdiagramme, Bausteinsichten, Verteilungspläne.
+        Diese Bilder erklären ein System schneller als jeder Fließtext.
+      </p>
+      <p>
+        Das Museum hängt sie auf und schreibt ein Schild daneben. Jede Ausstellung
+        widmet sich einem Thema und zeigt dazu eine Handvoll Exponate. Jedes Exponat
+        nennt seine Technik, also die Notation und das Werkzeug, mit dem es entstand.
+      </p>
+
+      <h3>Wie das Museum gebaut ist</h3>
+      <p>Drei Eigenschaften prägen den Bau:</p>
+      <ul>
+        <li><strong>Reines HTML, CSS und JavaScript.</strong> Kein Framework, kein Build-Zwang. Jede Datei lässt sich im Browser öffnen.</li>
+        <li><strong>Eine Ausstellung ist ein Ordner.</strong> Er enthält seine HTML-Seite, sein Stylesheet und seine Bilder. Nichts davon liegt woanders.</li>
+        <li><strong>Ein Register verbindet alles.</strong> Die Datei <code>ausstellungen/register.js</code> listet die Ausstellungen. Die Übersicht baut sich daraus.</li>
+      </ul>
+
+      <div class="hinweis" style="margin-top:2rem">
+        <p>Das Museum wächst durch Beiträge. Eine neue Ausstellung kostet einen Ordner und einen Eintrag im Register.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="saal">
+    <div class="huelle">
+      <h2>Derzeit zu sehen</h2>
+      <p class="untertitel" data-anzahl>Ausstellungen</p>
+
+      <ul class="galerie" data-galerie data-basis="ausstellungen/" data-limit="3"></ul>
+
+      <p style="margin-top:2.5rem"><a class="knopf" href="ausstellungen.html">Alle Ausstellungen</a></p>
+    </div>
+  </section>
+
+  <section class="saal" id="besuch">
+    <div class="huelle">
+      <h2>Ihr Besuch</h2>
+      <p class="untertitel">Öffnungszeiten und Eintritt</p>
+      <dl class="datenblatt">
+        <dt>Geöffnet</dt><dd>Immer. Das Museum liegt als statische Website auf GitHub Pages.</dd>
+        <dt>Eintritt</dt><dd>Frei.</dd>
+        <dt>Führungen</dt><dd>Jede Ausstellung führt sich selbst. Die Schilder unter den Exponaten erklären den Zusammenhang.</dd>
+        <dt>Kontakt</dt><dd><a href="impressum.html">siehe Impressum</a></dd>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<footer class="museumsfuss">
+  <div class="huelle">
+    <span>Bilder der Softwaretechnik &copy; <span data-jahr>2026</span></span>
+    <a href="impressum.html">Impressum</a>
+    <a href="ausstellungen.html">Ausstellungen</a>
+    <span class="rechts">Gebaut mit HTML, CSS und JavaScript.</span>
+  </div>
+</footer>
+
+<script src="ausstellungen/register.js"></script>
+<script src="assets/js/museum.js"></script>
+</body>
+</html>
