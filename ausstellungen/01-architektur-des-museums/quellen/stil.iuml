@@ -1,64 +1,66 @@
 ' =========================================================================
 ' Gemeinsamer Stil aller Diagramme dieser Ausstellung.
-' Farben folgen dem Stylesheet des Museums (assets/css/museum.css).
+' Die Farben folgen dem Stylesheet des Museums (assets/css/museum.css)
+' und damit dem Theme minima: heller Grund, dunkelgraue Schrift,
+' ein blauer Akzent.
 ' =========================================================================
 
-skinparam backgroundColor        #FFFDF8
+skinparam backgroundColor        #FDFDFD
 skinparam shadowing              false
 skinparam defaultFontName        SansSerif
 skinparam defaultFontSize        13
-skinparam defaultFontColor       #2B2521
+skinparam defaultFontColor       #111111
 skinparam roundCorner            3
 skinparam dpi                    140
 
 skinparam TitleFontSize          20
-skinparam TitleFontColor         #2B2521
+skinparam TitleFontColor         #111111
 skinparam TitleBorderThickness   0
 
-skinparam ArrowColor             #8C6239
-skinparam ArrowFontColor         #6B5F54
+skinparam ArrowColor             #2A7AE2
+skinparam ArrowFontColor         #555555
 skinparam ArrowFontSize          12
 
-skinparam ComponentBackgroundColor  #F4EFE6
-skinparam ComponentBorderColor      #8C6239
-skinparam ComponentFontColor        #2B2521
+skinparam ComponentBackgroundColor  #EEF2FC
+skinparam ComponentBorderColor      #2A7AE2
+skinparam ComponentFontColor        #111111
 
-skinparam PackageBackgroundColor    #FFFDF8
-skinparam PackageBorderColor        #C9BCA5
-skinparam PackageFontColor          #6B5F54
+skinparam PackageBackgroundColor    #FDFDFD
+skinparam PackageBorderColor        #C8C8C8
+skinparam PackageFontColor          #424242
 skinparam PackageFontStyle          bold
 
-skinparam RectangleBackgroundColor  #F4EFE6
-skinparam RectangleBorderColor      #8C6239
+skinparam RectangleBackgroundColor  #EEF2FC
+skinparam RectangleBorderColor      #2A7AE2
 
-skinparam FolderBackgroundColor     #EBE3D5
-skinparam FolderBorderColor         #B08553
+skinparam FolderBackgroundColor     #F0F0F0
+skinparam FolderBorderColor         #828282
 
-skinparam FileBackgroundColor       #EBE3D5
-skinparam FileBorderColor           #B08553
+skinparam FileBackgroundColor       #F7F7F7
+skinparam FileBorderColor           #828282
 
-skinparam ArtifactBackgroundColor   #EBE3D5
-skinparam ArtifactBorderColor       #B08553
+skinparam ArtifactBackgroundColor   #F0F0F0
+skinparam ArtifactBorderColor       #828282
 
-skinparam NodeBackgroundColor       #F4EFE6
-skinparam NodeBorderColor           #8C6239
+skinparam NodeBackgroundColor       #FDFDFD
+skinparam NodeBorderColor           #828282
 
-skinparam DatabaseBackgroundColor   #EBE3D5
-skinparam DatabaseBorderColor       #8C6239
+skinparam DatabaseBackgroundColor   #F0F0F0
+skinparam DatabaseBorderColor       #828282
 
-skinparam ActorBackgroundColor      #FFFDF8
-skinparam ActorBorderColor          #2B2521
+skinparam ActorBackgroundColor      #FDFDFD
+skinparam ActorBorderColor          #111111
 
-skinparam NoteBackgroundColor       #F7F0DF
-skinparam NoteBorderColor           #B08553
-skinparam NoteFontColor             #2B2521
+skinparam NoteBackgroundColor       #F7F7F7
+skinparam NoteBorderColor           #C8C8C8
+skinparam NoteFontColor             #424242
 skinparam NoteFontSize              12
 
-skinparam SequenceParticipantBackgroundColor  #F4EFE6
-skinparam SequenceParticipantBorderColor      #8C6239
-skinparam SequenceLifeLineBorderColor         #C9BCA5
-skinparam SequenceBoxBackgroundColor          #FFFDF8
-skinparam SequenceBoxBorderColor              #C9BCA5
-skinparam SequenceGroupBackgroundColor        #EBE3D5
-skinparam SequenceGroupBorderColor            #B08553
-skinparam SequenceGroupHeaderFontColor        #2B2521
+skinparam SequenceParticipantBackgroundColor  #EEF2FC
+skinparam SequenceParticipantBorderColor      #2A7AE2
+skinparam SequenceLifeLineBorderColor         #C8C8C8
+skinparam SequenceBoxBackgroundColor          #F7F7F7
+skinparam SequenceBoxBorderColor              #C8C8C8
+skinparam SequenceGroupBackgroundColor        #F0F0F0
+skinparam SequenceGroupBorderColor            #828282
+skinparam SequenceGroupHeaderFontColor        #111111

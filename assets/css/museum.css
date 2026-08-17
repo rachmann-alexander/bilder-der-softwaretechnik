@@ -1,22 +1,29 @@
 /* =========================================================================
    Bilder der Softwaretechnik  --  gemeinsames Stylesheet
-   Klassischer Museumslook: Sandtoene, Serifenschrift, Passepartout-Rahmen.
+
+   Das Aussehen lehnt sich an das Jekyll-Theme "minima" an:
+   Systemschrift, 800 Pixel Textspalte, weisser Grund, graue Linien,
+   ein blauer Akzent. Keine Schatten, keine Verläufe.
+
+   Die Klassennamen bleiben die des Museums. Die HTML-Dateien
+   brauchten für dieses Stylesheet keine Änderung.
    ========================================================================= */
 
 :root {
-  --wand:        #f4efe6;
-  --wand-tief:   #ebe3d5;
-  --papier:      #fffdf8;
-  --tinte:       #2b2521;
-  --tinte-leise: #6b5f54;
-  --bronze:      #8c6239;
-  --bronze-hell: #b08553;
-  --rahmen:      #d8cdbb;
-  --schatten:    0 2px 4px rgba(43, 37, 33, .08), 0 12px 28px rgba(43, 37, 33, .10);
-  --serif:       "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --grotesk:     "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --spur:        .14em;
-  --breite:      68rem;
+  --grund:        #fdfdfd;
+  --text:         #111111;
+  --grau:         #828282;
+  --grau-hell:    #e8e8e8;
+  --grau-dunkel:  #424242;
+  --akzent:       #2a7ae2;
+  --akzent-dunkel:#1756a9;
+  --code-grund:   #eef;
+
+  --schrift: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --schrift-fest: Menlo, Monaco, "Courier New", monospace;
+
+  --einheit: 30px;
+  --spalte:  800px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -25,282 +32,272 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--wand);
-  color: var(--tinte);
-  font-family: var(--serif);
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  background: var(--grund);
+  color: var(--text);
+  font-family: var(--schrift);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
 }
 
-img { max-width: 100%; height: auto; display: block; }
+/* --------------------------------------------------------------- Grund */
 
-a { color: var(--bronze); text-decoration-thickness: 1px; text-underline-offset: .18em; }
-a:hover { color: var(--tinte); }
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure {
+  margin: 0 0 15px;
+}
 
-.huelle { max-width: var(--breite); margin: 0 auto; padding: 0 1.5rem; }
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
 
-/* ------------------------------------------------------------------ Kopf */
+h2 { font-size: 32px; }
+h3 { font-size: 26px; }
+h4 { font-size: 20px; }
+
+p, ul, ol, dl { max-width: 42em; }
+
+img { max-width: 100%; height: auto; vertical-align: middle; }
+
+a { color: var(--akzent); text-decoration: none; }
+a:visited { color: var(--akzent-dunkel); }
+a:hover { color: var(--text); text-decoration: underline; }
+
+ul, ol { padding-left: 1.5em; }
+li > ul, li > ol { margin-bottom: 0; }
+
+hr { border: 0; border-top: 1px solid var(--grau-hell); margin: var(--einheit) 0; }
+
+blockquote {
+  color: var(--grau);
+  border-left: 4px solid var(--grau-hell);
+  padding-left: 15px;
+  font-size: 18px;
+  font-style: italic;
+}
+
+code, pre { font-family: var(--schrift-fest); font-size: 15px; }
+
+code {
+  border: 1px solid var(--grau-hell);
+  border-radius: 3px;
+  background-color: var(--code-grund);
+  padding: 1px 5px;
+}
+
+pre {
+  border: 1px solid var(--grau-hell);
+  border-radius: 3px;
+  background-color: var(--code-grund);
+  padding: 8px 12px;
+  overflow-x: auto;
+}
+
+pre > code { border: 0; padding: 0; background: none; }
+
+/* Die Textspalte. Im HTML heisst sie huelle. */
+.huelle {
+  max-width: calc(var(--spalte) - var(--einheit) * 2);
+  margin: 0 auto;
+  padding: 0 var(--einheit);
+}
+
+.huelle::after { content: ""; display: table; clear: both; }
+
+/* ------------------------------------------------------------ Kopfteil */
 
 .museumskopf {
-  border-bottom: 1px solid var(--rahmen);
-  background: var(--papier);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  border-top: 5px solid var(--grau-dunkel);
+  border-bottom: 1px solid var(--grau-hell);
+  background: var(--grund);
+  min-height: 56px;
 }
 
 .museumskopf .huelle {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: .5rem 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  align-items: center;
+  gap: 0 var(--einheit);
+  min-height: 56px;
 }
 
 .wortmarke {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: var(--spur);
-  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  color: var(--grau-dunkel);
   text-decoration: none;
-  color: var(--tinte);
+  padding: 8px 0;
 }
 
-.wortmarke span { display: block; font-size: .62rem; letter-spacing: .3em; color: var(--tinte-leise); font-weight: 400; }
+.wortmarke:visited { color: var(--grau-dunkel); }
+.wortmarke:hover { color: var(--text); text-decoration: none; }
 
-.wegweiser { margin-left: auto; display: flex; gap: 1.75rem; }
-
-.wegweiser a {
-  font-family: var(--grotesk);
-  font-size: .74rem;
-  letter-spacing: var(--spur);
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--tinte-leise);
-  padding-bottom: .2rem;
-  border-bottom: 2px solid transparent;
+.wortmarke span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--grau);
 }
 
-.wegweiser a:hover, .wegweiser a[aria-current="page"] { color: var(--tinte); border-bottom-color: var(--bronze); }
+.wegweiser { margin-left: auto; display: flex; gap: 20px; padding: 8px 0; }
 
-/* --------------------------------------------------------------- Portal */
+.wegweiser a { color: var(--text); }
+.wegweiser a:visited { color: var(--text); }
+.wegweiser a:hover { color: var(--akzent); text-decoration: none; }
+.wegweiser a[aria-current="page"] { color: var(--grau); }
 
-.portal {
-  padding: 5.5rem 0 4rem;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at 50% -10%, rgba(255, 253, 248, .95), transparent 62%),
-    var(--wand);
-}
+/* --------------------------------------------------------------- Titel */
+
+.portal { padding: calc(var(--einheit) * 1.5) 0 0; }
 
 .portal h1 {
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  line-height: 1.08;
-  margin: 0 0 1rem;
-  font-weight: 400;
-  letter-spacing: .01em;
-}
-
-.portal .zierlinie { margin: 1.75rem auto; }
-
-.vorspann {
-  max-width: 34rem;
-  margin: 0 auto;
-  font-size: 1.2rem;
-  color: var(--tinte-leise);
-}
-
-.zierlinie {
-  width: 5rem;
-  height: 1px;
-  background: var(--bronze);
-  border: 0;
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0 0 15px;
 }
 
 .oberzeile {
-  font-family: var(--grotesk);
-  font-size: .72rem;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin: 0 0 1.25rem;
+  font-size: 14px;
+  color: var(--grau);
+  margin: 0 0 8px;
 }
 
-/* --------------------------------------------------------------- Saeule */
-
-.saal { padding: 3.5rem 0; }
-.saal + .saal { border-top: 1px solid var(--rahmen); }
-
-.saal h2 {
-  font-size: 1.9rem;
-  font-weight: 400;
-  margin: 0 0 .35rem;
+.zierlinie {
+  width: 100%;
+  border-top: 1px solid var(--grau-hell);
+  margin: var(--einheit) 0 0;
 }
 
-.saal h3 { font-size: 1.25rem; font-weight: 600; margin: 2rem 0 .5rem; }
+.vorspann { font-size: 18px; color: var(--grau-dunkel); max-width: 36em; }
 
-.saal p { max-width: 42rem; }
+/* --------------------------------------------------------- Abschnitte */
 
-.untertitel {
-  font-family: var(--grotesk);
-  font-size: .74rem;
-  letter-spacing: var(--spur);
-  text-transform: uppercase;
-  color: var(--tinte-leise);
-  margin: 0 0 2rem;
-}
+.saal { padding: var(--einheit) 0; }
+.saal + .saal { border-top: 1px solid var(--grau-hell); }
+
+.untertitel { font-size: 14px; color: var(--grau); margin: -8px 0 var(--einheit); }
 
 /* ------------------------------------------------------- Ausstellungen */
 
 .galerie {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: var(--einheit);
   padding: 0;
   margin: 0;
+  max-width: none;
   list-style: none;
 }
 
 .tafel {
-  background: var(--papier);
-  border: 1px solid var(--rahmen);
-  box-shadow: var(--schatten);
+  border: 1px solid var(--grau-hell);
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
-  transition: transform .18s ease, box-shadow .18s ease;
+  background: #fff;
 }
-
-.tafel:hover { transform: translateY(-3px); box-shadow: 0 6px 10px rgba(43,37,33,.10), 0 20px 40px rgba(43,37,33,.14); }
 
 .tafel a.tafel-bild {
   display: block;
-  background: var(--wand-tief);
-  padding: 1.25rem;
-  border-bottom: 1px solid var(--rahmen);
+  padding: 15px;
+  border-bottom: 1px solid var(--grau-hell);
 }
 
 .tafel a.tafel-bild img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; }
 
-.tafel-text { padding: 1.5rem 1.5rem 1.75rem; display: flex; flex-direction: column; flex: 1; }
+.tafel-text { padding: 15px; display: flex; flex-direction: column; flex: 1; }
 
-.tafel-text .marke {
-  font-family: var(--grotesk);
-  font-size: .68rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--bronze);
-  margin: 0 0 .5rem;
-}
+.tafel-text .marke { font-size: 14px; color: var(--grau); margin: 0 0 5px; }
 
-.tafel-text h3 { margin: 0 0 .5rem; font-size: 1.35rem; font-weight: 400; }
-.tafel-text h3 a { text-decoration: none; color: var(--tinte); }
-.tafel-text h3 a:hover { color: var(--bronze); }
-.tafel-text p { margin: 0 0 1.25rem; color: var(--tinte-leise); font-size: .98rem; }
-.tafel-text .fuss { margin-top: auto; font-family: var(--grotesk); font-size: .72rem; letter-spacing: .1em; color: var(--tinte-leise); }
+.tafel-text h3 { margin: 0 0 8px; font-size: 24px; line-height: 1.2; }
+.tafel-text h3 a { color: var(--akzent); }
+.tafel-text h3 a:visited { color: var(--akzent-dunkel); }
+
+.tafel-text p { margin: 0 0 15px; max-width: none; }
+
+.tafel-text .fuss { margin: auto 0 0; font-size: 14px; color: var(--grau); }
 
 .knopf {
   display: inline-block;
-  font-family: var(--grotesk);
-  font-size: .74rem;
-  letter-spacing: var(--spur);
-  text-transform: uppercase;
-  text-decoration: none;
-  color: var(--tinte);
-  border: 1px solid var(--bronze);
-  padding: .7rem 1.6rem;
-  background: transparent;
-  transition: background .16s ease, color .16s ease;
+  border: 1px solid var(--grau-hell);
+  border-radius: 3px;
+  padding: 8px 15px;
+  color: var(--akzent);
+  background: #fff;
 }
 
-.knopf:hover { background: var(--bronze); color: var(--papier); }
+.knopf:hover { border-color: var(--akzent); color: var(--akzent); text-decoration: none; }
 
-/* ------------------------------------------------------------- Exponat */
+/* ------------------------------------------------------------ Exponat */
 
-.exponat { margin: 3.5rem 0; }
+.exponat { margin: 0 0 calc(var(--einheit) * 1.5); }
 
 .passepartout {
-  background: var(--papier);
-  border: 1px solid var(--rahmen);
-  box-shadow: var(--schatten);
-  padding: 2.5rem;
+  border: 1px solid var(--grau-hell);
+  border-radius: 3px;
+  background: #fff;
+  padding: var(--einheit);
 }
 
-.passepartout img { margin: 0 auto; }
+.passepartout img { margin: 0 auto; display: block; }
 
 .schildchen {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--rahmen);
-  max-width: 44rem;
+  margin-top: var(--einheit);
+  padding-top: 15px;
+  border-top: 1px solid var(--grau-hell);
 }
 
-.schildchen .nummer {
-  font-family: var(--grotesk);
-  font-size: .68rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--bronze);
-}
+.schildchen .nummer { font-size: 14px; color: var(--grau); margin: 0 0 5px; }
+.schildchen h3 { margin: 0 0 15px; font-size: 26px; }
+.schildchen p { margin: 0 0 15px; }
+.schildchen .technik { font-size: 14px; color: var(--grau); margin: 0; }
 
-.schildchen h3 { margin: .3rem 0 .5rem; font-size: 1.3rem; font-weight: 600; }
-.schildchen p { margin: 0 0 .75rem; color: var(--tinte-leise); }
-
-.schildchen .technik {
-  font-family: var(--grotesk);
-  font-size: .74rem;
-  color: var(--tinte-leise);
-}
-
-/* ----------------------------------------------------------------- Fuss */
+/* --------------------------------------------------------------- Fuss */
 
 .museumsfuss {
-  border-top: 1px solid var(--rahmen);
-  background: var(--papier);
-  margin-top: 4rem;
-  padding: 2.5rem 0;
-  font-family: var(--grotesk);
-  font-size: .8rem;
-  color: var(--tinte-leise);
+  border-top: 1px solid var(--grau-hell);
+  margin-top: var(--einheit);
+  padding: var(--einheit) 0;
+  font-size: 15px;
+  color: var(--grau);
 }
 
-.museumsfuss .huelle { display: flex; flex-wrap: wrap; gap: .75rem 2rem; align-items: center; }
-.museumsfuss a { color: var(--tinte-leise); }
+.museumsfuss .huelle { display: flex; flex-wrap: wrap; gap: 8px var(--einheit); align-items: baseline; }
+.museumsfuss a { color: var(--grau); }
+.museumsfuss a:hover { color: var(--text); }
 .museumsfuss .rechts { margin-left: auto; }
 
-/* -------------------------------------------------------------- Details */
+/* ------------------------------------------------------------ Details */
 
-dl.datenblatt { display: grid; grid-template-columns: max-content 1fr; gap: .4rem 1.5rem; max-width: 42rem; }
-dl.datenblatt dt { font-family: var(--grotesk); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--tinte-leise); padding-top: .35rem; }
+dl.datenblatt { display: grid; grid-template-columns: max-content 1fr; gap: 8px var(--einheit); max-width: 42em; }
+dl.datenblatt dt { font-size: 14px; color: var(--grau); }
 dl.datenblatt dd { margin: 0; }
 
 .hinweis {
-  border-left: 3px solid var(--bronze-hell);
-  background: var(--wand-tief);
-  padding: 1rem 1.25rem;
-  max-width: 42rem;
+  color: var(--grau);
+  border-left: 4px solid var(--grau-hell);
+  padding-left: 15px;
+  max-width: 42em;
 }
 
-.hinweis p { margin: 0; }
+.hinweis p { margin: 0; max-width: none; }
 
-code, pre { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; }
+/* ----------------------------------------------------------- Schmales */
 
-pre {
-  background: var(--wand-tief);
-  border: 1px solid var(--rahmen);
-  padding: 1rem 1.25rem;
-  overflow-x: auto;
-  line-height: 1.55;
-}
+@media screen and (max-width: 800px) {
+  .huelle {
+    max-width: calc(var(--spalte) - var(--einheit));
+    padding: 0 calc(var(--einheit) / 2);
+  }
 
-@media (max-width: 40rem) {
-  .portal { padding: 3.5rem 0 2.5rem; }
-  .passepartout { padding: 1.25rem; }
-  .museumskopf { position: static; }
-  .wegweiser { gap: 1.1rem; width: 100%; margin-left: 0; }
+  .museumskopf .huelle { align-items: flex-start; padding-top: 8px; padding-bottom: 8px; }
+  .wegweiser { margin-left: 0; width: 100%; flex-wrap: wrap; gap: 15px; padding-top: 0; }
+  .portal h1 { font-size: 32px; }
+  .passepartout { padding: 15px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; scroll-behavior: auto !important; }
+  html { scroll-behavior: auto; }
 }
